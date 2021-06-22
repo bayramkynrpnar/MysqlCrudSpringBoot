@@ -2,6 +2,8 @@ package com.example.MysqlCrudSpringBoot.api.controller.imageController;
 
 import com.example.MysqlCrudSpringBoot.business.image.ImageService;
 import com.example.MysqlCrudSpringBoot.entities.image.Image;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/images")
+@Api(value = "/version/1/tutorials")
 public class ImageRestController {
     private ImageService imageService;
 
@@ -22,6 +25,7 @@ public class ImageRestController {
         this.imageService = imageService;
     }
     @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ApiOperation(value = "addImage")
     public HttpStatus addImage(@RequestBody Image image){
             imageService.createImage(image);
 
@@ -29,6 +33,7 @@ public class ImageRestController {
             return HttpStatus.OK;
     }
     @RequestMapping(value = "/all",method = RequestMethod.GET)
+    @ApiOperation(value = "getAllImage")
     public List<Image> getAllImage(){
         return imageService.getAllImages();
     }
