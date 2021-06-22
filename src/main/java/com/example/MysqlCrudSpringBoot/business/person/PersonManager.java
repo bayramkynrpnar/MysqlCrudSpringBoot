@@ -1,9 +1,9 @@
-package com.example.MysqlCrudSpringBoot.business;
+package com.example.MysqlCrudSpringBoot.business.person;
 
-import com.example.MysqlCrudSpringBoot.dataAccess.PersonRepository;
+import com.example.MysqlCrudSpringBoot.dataAccess.personRepository.PersonRepository;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-import com.example.MysqlCrudSpringBoot.entities.Person;
+import com.example.MysqlCrudSpringBoot.entities.person.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

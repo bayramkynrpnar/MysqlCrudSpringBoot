@@ -4,8 +4,12 @@ spring:
     url: jdbc:mysql://localhost:16090/mysqldb
     username: root
     password: root
-
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
+  data:
+    mongodb:
+      uri: mongodb://root:root@localhost:18002/admin
+
+

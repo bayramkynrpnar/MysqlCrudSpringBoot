@@ -1,4 +1,4 @@
-package com.example.MysqlCrudSpringBoot.entities;
+package com.example.MysqlCrudSpringBoot.entities.person;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

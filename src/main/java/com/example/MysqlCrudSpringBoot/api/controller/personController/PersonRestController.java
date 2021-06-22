@@ -1,7 +1,7 @@
-package com.example.MysqlCrudSpringBoot.api.controller;
+package com.example.MysqlCrudSpringBoot.api.controller.personController;
 
-import com.example.MysqlCrudSpringBoot.entities.Person;
-import com.example.MysqlCrudSpringBoot.business.PersonService;
+import com.example.MysqlCrudSpringBoot.entities.person.Person;
+import com.example.MysqlCrudSpringBoot.business.person.PersonService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +17,7 @@ import java.util.List;
 public class PersonRestController {
    @Autowired
     PersonService personService;
+
 
 
 

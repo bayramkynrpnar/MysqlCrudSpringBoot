@@ -1,6 +1,6 @@
-package com.example.MysqlCrudSpringBoot.business;
+package com.example.MysqlCrudSpringBoot.business.person;
 
-import com.example.MysqlCrudSpringBoot.entities.Person;
+import com.example.MysqlCrudSpringBoot.entities.person.Person;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
