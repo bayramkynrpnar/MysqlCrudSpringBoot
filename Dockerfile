@@ -1,12 +1,13 @@
-FROM openjdk:8-jdk-alpine
+FROM maven:3.6.0-jdk-8-slim AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+RUN ls -l  /home/app/target
 
-
-# ARG PACKAGED_JAR=target/MysqlCrudSpringBoot-0.0.1-SNAPSHOT.jar
-
-# ADD ${PACKAGED_JAR} MysqlCrudSpringBoot-0.0.1-SNAPSHOT.jar
-
-COPY ./target/. .
-
+#
+# Package stage
+#
+FROM openjdk:8-jre-slim
+COPY --from=build /home/app/target/MysqlCrudSpringBoot-0.0.1-SNAPSHOT.jar /usr/local/lib/MysqlCrudSpringBoot-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-
-ENTRYPOINT ["java","-jar","MysqlCrudSpringBoot-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/MysqlCrudSpringBoot-0.0.1-SNAPSHOT.jar"]
