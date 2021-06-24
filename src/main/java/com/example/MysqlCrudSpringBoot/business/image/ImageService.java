@@ -6,6 +6,6 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 public interface ImageService {
-    public List<Image> getAllImages();
-    public HttpStatus createImage(Image image);
+    List<Image> getAllImages();
+    HttpStatus createImage(Image image);
 }

@@ -13,25 +13,28 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/rest")
-@Api(value = "/version/1/tutorials")
+
+
 public class PersonRestController {
-   @Autowired
-    PersonService personService;
 
+    private PersonService personService;
 
+    @Autowired
+    public PersonRestController(PersonService personService) {
+        this.personService = personService;
+    }
 
+    @GetMapping("/persons")
+    @ApiOperation(value = "Get Persons")
+    public ResponseEntity<List<Person>> persons() {
+        List<Person> persons = personService.persons();
+        return ResponseEntity.ok(persons);
+    }
 
-@GetMapping("/persons")
-@ApiOperation(value = "Get Persons")
-public ResponseEntity<List<Person>> persons(){
-List<Person>persons = personService.persons();
-return ResponseEntity.ok(persons);
-}
-
-@PostMapping("/createPerson")
-@ApiOperation(value = "Create Person")
-public HttpStatus createPerson(@RequestBody Person person){
-     personService.createPerson(person);
-     return HttpStatus.OK;
-}
+    @PostMapping("/createPerson")
+    @ApiOperation(value = "Create Person")
+    public HttpStatus createPerson(@RequestBody Person person) {
+        personService.createPerson(person);
+        return HttpStatus.OK;
+    }
 }
