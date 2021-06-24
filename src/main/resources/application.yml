@@ -1,15 +1,17 @@
 spring:
   datasource:
     driverClassname: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:16090/mysqldb
+    url: jdbc:mysql://root:root@${MYSQLHOST}:${MYSQLPORT}/mysqldb
     username: root
     password: root
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
+    database: mysql
+
   data:
     mongodb:
-      uri: mongodb://root:root@localhost:18002/admin
+      uri: mongodb://root:root@${MONGODBHOST}:${MONGODBPORT}/admin
 
 

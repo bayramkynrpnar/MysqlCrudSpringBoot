@@ -1,0 +1,42 @@
+version: '3.1'
+
+services:
+
+  mongo: 
+    
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: Local
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_ROOT_USERNAME: root
+    ports:
+     - "18002:27017"
+    
+       
+  
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    ports:
+      - "16090:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mysqldb
+
+  webservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
+      - mysql  
+    ports:
+      - 8080:8080  
+
+    environment:
+      MYSQLPORT: 3306
+      MYSQLHOST: 'mysql'
+      MONGODBHOST: 'mongo'
+      MONGODBPORT: 27017
+    

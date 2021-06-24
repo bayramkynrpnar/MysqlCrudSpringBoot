@@ -12,6 +12,12 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 public class MysqlCrudSpringBootApplication {
     public static void main(String[] args) {
+       System.out.println(System.getenv("MYSQLHOST"));
+        System.out.println(System.getenv("MYSQLPORT"));
+        System.out.println(System.getenv("MONGODBHOST"));
+        System.out.println(   System.getenv("MONGODBPORT"));
+
+
         SpringApplication.run(MysqlCrudSpringBootApplication.class, args);
     }
 }
